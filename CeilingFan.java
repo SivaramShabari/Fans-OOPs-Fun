@@ -57,6 +57,7 @@ public class CeilingFan extends Fan{
         }else{
             System.out.println("Wrong choice...");
         }
+        sc.close();
         return "";
     }
 }
