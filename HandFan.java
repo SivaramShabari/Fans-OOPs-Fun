@@ -16,18 +16,20 @@ public class HandFan extends Fan {
 
     @Override
     public String accessFan() {
-        super.accessFan();
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter \"size\" if this hand fan's size has been changed...");
-        String choice = sc.next();
-        if(choice.equals("size")){
-            System.out.println("Enter the new handle size: ");
-            int h = sc.nextInt();
-            this.handleSize=h;
-        }else{
-            System.out.println("Wrong choice...");
+        String input = super.accessFan();
+        if(!input.equals("0")){
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter \"size\" if this hand fan's size has been changed...");
+            String choice = sc.next();
+            if(choice.equals("size")){
+                System.out.println("Enter the new handle size: ");
+                int h = sc.nextInt();
+                this.handleSize=h;
+            }else{
+                System.out.println("Wrong choice...");
+            }
+            
         }
-        sc.close();
         return "";
     }
 }

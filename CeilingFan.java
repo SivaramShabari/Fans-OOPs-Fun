@@ -39,25 +39,28 @@ public class CeilingFan extends Fan{
 
     @Override
     public String accessFan() {
-        super.accessFan();
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter \"height\" if this ceiling fan's hanging height has been changed...");
-        System.out.println("Enter \"area\" if this ceiling fan's coverage area has been changed...");
-        String choice = sc.next();
-        if(choice.equals("height")){
-            this.switchState();
-            }else if(choice.equals("area")){
-            System.out.println("Enter the new hanging height: ");
-            int h = sc.nextInt();
-            this.hangingHeight=h;
-        }else if(choice.equals("2")){
-            System.out.println("Enter the area covered: ");
-            int a = sc.nextInt();
-            this.airAreaCoverage=a;
-        }else{
-            System.out.println("Wrong choice...");
+
+        String input = super.accessFan();
+        if(!input.equals("0")){
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter \"height\" if this ceiling fan's hanging height has been changed...");
+            System.out.println("Enter \"area\" if this ceiling fan's coverage area has been changed...");
+            String choice = sc.next();
+            if(choice.equals("height")){
+                this.switchState();
+                }else if(choice.equals("area")){
+                System.out.println("Enter the new hanging height: ");
+                int h = sc.nextInt();
+                this.hangingHeight=h;
+            }else if(choice.equals("2")){
+                System.out.println("Enter the area covered: ");
+                int a = sc.nextInt();
+                this.airAreaCoverage=a;
+            }else{
+                System.out.println("Wrong choice...");
+            }
+            
         }
-        sc.close();
         return "";
     }
 }

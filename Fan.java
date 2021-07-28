@@ -14,7 +14,7 @@ public abstract class Fan{
         this.currentSpeed=0;
         this.inputType=inputType;
     }
-    
+
     InputType inputType;
     String modelID;
     String name;
@@ -46,18 +46,18 @@ public abstract class Fan{
     void switchState(){
         this.state= !state;
         if(state)
-            System.out.println(this.modelID+" Turned On");
+            System.out.println(this.company+" - "+this.name+", Turned On");
         else 
-            System.out.println(this.modelID+" Turned Off");
+            System.out.println(this.company+" - "+this.name+", Turned Off");
     }
     void switchState(String state){
         state=state.toLowerCase();
         if(state=="on"||state=="turn on"||state=="switch on") {
             this.state=true;
-            System.out.println(this.modelID+" Turned On");
+            System.out.println(this.company+" - "+this.name+", Turned On");
         }
         else {
-            System.out.println(this.modelID+" Turned Off");
+            System.out.println(this.company+" - "+this.name+", Turned Off");
             this.state=false;
         }
 
@@ -77,14 +77,14 @@ public abstract class Fan{
         Scanner sc = new Scanner(System.in);
         String choice;
         while(true){
-        System.out.println("You are now using "+this.company+"-"+this.name);
+        System.out.println("\n\n\nYou are now using "+this.company+"-"+this.name);
         System.out.println("Enter 0 to view other fans");
         System.out.println("Enter 1 to turn the fan on/off ");
-        System.out.println("Enter \"change\" to change other properties");
         if(speedLevels>0 ){
             System.out.println("Enter \"increase\" to increase speed");
             System.out.println("Enter \"decrease\" to decrease speed");
         }
+        System.out.println("Enter \"change\" to change other properties");
         choice = sc.next();
             if(choice.equals("0")){
                 break;
@@ -95,14 +95,13 @@ public abstract class Fan{
             }else if(choice.equals("decrease")){
                 this.decreaseSpeed();
             }else if(choice.equals("change")){
-                sc.close();
+                
                 break;
             }else{
                 System.out.println("Wrong choice...");
             }
-
         }
-        sc.close();
+        
         return choice;
     }
 

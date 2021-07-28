@@ -8,7 +8,7 @@ public class USBFan extends Fan{
     public USBFan(){
         super();
     }
-    
+
     public USBFan(String modelID, int speedLevels, int operatingVoltage, int voltageFrequency, int numberOfBlades, int powerInWatts, InputType inputType){
         super(modelID, speedLevels, operatingVoltage, voltageFrequency, numberOfBlades, powerInWatts, inputType);
     }
@@ -37,7 +37,8 @@ public class USBFan extends Fan{
 
     @Override
     public String accessFan() {
-        super.accessFan();
+        String input = super.accessFan();
+        if(!input.equals("0")){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter \"e\" to change efficiency range of this fan: ");
         String choice = sc.next();
@@ -48,7 +49,7 @@ public class USBFan extends Fan{
         }else{
             System.out.println("Wrong choice...");
         }
-        sc.close();
+    }
         return "";
     }
 }
